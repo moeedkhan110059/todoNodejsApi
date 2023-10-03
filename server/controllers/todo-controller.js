@@ -1,9 +1,7 @@
 const Todo = require('../models/Todo');
 
-const createTodo = async (req,res)=>{
+const createTodo = async (req,res) => {
 
-    console.log(req)
-    
     try {
         const newTodo = await Todo.create({
             data: req.body.data,
@@ -11,7 +9,7 @@ const createTodo = async (req,res)=>{
         });
         
         newTodo.save();
-        return res.status(200).json(newTodos)
+        return res.status(200).json(newTodo)
     } 
     catch(error){
         return res.status(500).json(error.message);
@@ -30,7 +28,7 @@ const deleteTodo = async (req,res)=>{
         
         newTodo.save();
 
-        return res.status(200).json(newTodos)
+        return res.status(200).json(newTodo)
     } 
     catch(error){
         return res.status(500).json(error.message);
@@ -50,7 +48,7 @@ const updateTodo = async (req,res)=>{
         
         newTodo.save();
 
-        return res.status(200).json(newTodos)
+        return res.status(200).json(newTodo)
     } 
     catch(error){
         return res.status(500).json(error.message);
